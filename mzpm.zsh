@@ -4,11 +4,11 @@
 
 # Download not already downloaded plugins and source them
 load_zsh_plugins() {
-    for plugin in "${plugins}"; do
-        local plug_name="$(basename \"${plugin}\")"
+    for plugin in ${plugins}; do
+        local plug_name="$(basename ${plugin})"
         local plug_location="${PLUGIN_DIR}/${plug_name}"
 
-        if ! [[ -d "${plug_location}" ]]; then
+        if [[ ! -d "${plug_location}" ]]; then
             local plug_link="https://github.com/${plugin}"
             git clone "${plug_link}" "${plug_location}"
         fi
